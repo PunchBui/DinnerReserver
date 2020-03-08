@@ -18,6 +18,32 @@ class Main extends React.Component {
         //   name: ['McDonald','KFC','BurgerKing','MK'],
         //   place: ['Central Rama 2','Central Rama 3','Central Rama 4','Central Rama 5'],
         //   currQ: Math.floor(Math.random() * 100)
+          placeList : {
+            McDonald: {
+                name: 'McDonald',
+                place: 'Central Rama 2',
+                img: Mc,
+                currQ: Math.floor(Math.random() * 100)
+            },
+            KFC: {
+                name: 'KFC',
+                place: 'Central Rama 3',
+                img: kfc,
+                currQ: Math.floor(Math.random() * 100)
+            },
+            BurgerKing: {
+                name: 'BurgerKing',
+                place: 'Central Rama 4',
+                img: bgk,
+                currQ: Math.floor(Math.random() * 100)
+            },
+            MK: {
+                name: 'MK',
+                place: 'Central Rama 5',
+                img: mk,
+                currQ: Math.floor(Math.random() * 100)
+            }
+          }
         };
     }
     // sendProps = () => {
@@ -29,6 +55,58 @@ class Main extends React.Component {
         this.setState({
             searchInput : e
         });
+    }
+    dinningPlace = {
+        McDonald: {
+            name: 'McDonald',
+            place: 'Central Rama 2',
+            img: Mc,
+            currQ: Math.floor(Math.random() * 100)
+        },
+        KFC: {
+            name: 'KFC',
+            place: 'Central Rama 3',
+            img: kfc,
+            currQ: Math.floor(Math.random() * 100)
+        },
+        BurgerKing: {
+            name: 'BurgerKing',
+            place: 'Central Rama 4',
+            img: bgk,
+            currQ: Math.floor(Math.random() * 100)
+        },
+        MK: {
+            name: 'MK',
+            place: 'Central Rama 5',
+            img: mk,
+            currQ: Math.floor(Math.random() * 100)
+        }
+    }
+    searchHandler = () => {
+        let list = {};
+        console.log("searching...")
+        if(this.state.searchInput.includes("Mcdonald")){
+            console.log("Mc")
+            let mc = {Mcdonald : this.dinningPlace.McDonald}
+            list = {...list,...mc}
+        }else if(this.state.searchInput.includes("MK")){
+            console.log("MK")
+            let mk = {MK : this.dinningPlace.MK}
+            list = {...list,...mk}
+        }else if(this.state.searchInput.includes("KFC")){
+            console.log("KFC")
+            let kfc = {KFC : this.dinningPlace.KFC}
+            list = {...list,...kfc}
+        }else if(this.state.searchInput.includes("BurgerKing")){
+            console.log("BurgerKing")
+            let Burgerking = {BurgerKing : this.dinningPlace.BurgerKing}
+            list = {...list,...Burgerking}
+        }
+        this.setState({
+            placeList : list,
+        })
+        console.log(list);
+        // Object.entries(this.dinningPlace).forEach(([key, val]) => console.log(key, val));
     }
     render() {
         const dinningPlace = {
@@ -64,7 +142,7 @@ class Main extends React.Component {
                 <Search placeholder="Find Dinner Place."
                         value={this.state.searchInput}
                         onChange={(e) => this.setSearch(e.target.value)}/>
-                <SearchBtn>SEARCH</SearchBtn>
+                <SearchBtn onClick={this.searchHandler}>SEARCH</SearchBtn>
             </SearchContainner>
             <CardCon>
                 <WrapperCards>
