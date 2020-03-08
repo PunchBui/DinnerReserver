@@ -11,12 +11,24 @@ const Post = () => <h1>Post</h1>
 const Project = () => <h1>Project</h1>
 
 class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      searchInput : "",
+      name: ['McDonald','KFC','BurgerKing','MK'],
+      place: ['Central Rama 2','Central Rama 3','Central Rama 4','Central Rama 5']
+    };
+}
   render() {
+    const info = {
+      name: ['McDonald','KFC','BurgerKing','MK'],
+      place: ['Central Rama 2','Central Rama 3','Central Rama 4','Central Rama 5']
+    };
     return (
       <div className="App container">
         <Header/>
         <Route exact path="/" component={Main}/>
-        <Route path="/queq" component={Queqed} />
+        <Route path="/queq" component={Queqed}/>
         <Footer/>
       </div>
     )

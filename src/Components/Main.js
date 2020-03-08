@@ -16,7 +16,8 @@ class Main extends React.Component {
         this.state = {
           searchInput : "",
           name: ['McDonald','KFC','BurgerKing','MK'],
-          place: ['Central Rama 2','Central Rama 3','Central Rama 4','Central Rama 5']
+          place: ['Central Rama 2','Central Rama 3','Central Rama 4','Central Rama 5'],
+          currQ: Math.floor(Math.random() * 100)
         };
     }
     // sendProps = () => {
@@ -30,6 +31,32 @@ class Main extends React.Component {
         });
     }
     render() {
+        const dinningPlace = {
+            McDonald: {
+                name: 'McDonald',
+                place: 'Central Rama 2',
+                img: Mc,
+                currQ: Math.floor(Math.random() * 100)
+            },
+            KFC: {
+                name: 'KFC',
+                place: 'Central Rama 3',
+                img: kfc,
+                currQ: Math.floor(Math.random() * 100)
+            },
+            BurgerKing: {
+                name: 'BurgerKing',
+                place: 'Central Rama 4',
+                img: bgk,
+                currQ: Math.floor(Math.random() * 100)
+            },
+            MK: {
+                name: 'Mk',
+                place: 'Central Rama 5',
+                img: mk,
+                currQ: Math.floor(Math.random() * 100)
+            }
+        }
         return (
         <Wrapper>
             <SearchBg src={bgSearch}/>
@@ -43,10 +70,10 @@ class Main extends React.Component {
                 <WrapperCards>
                     <LogoCards src={Mc}/>
                     <TextContainnerCards>
-                        <TextsCards>{this.state.name[0]}</TextsCards>
-                        <TextsCards>Place : {this.state.place[0]}</TextsCards>
-                        <TextsCards>Queq : {Math.floor(Math.random() * 100)}</TextsCards>
-                        <Link to="/queq" style={{marginTop:'auto'}}><ButtonCards>Reserve</ButtonCards></Link>
+                        <TextsCards>{dinningPlace.McDonald.name}</TextsCards>
+                        <TextsCards>Place : {dinningPlace.McDonald.place}</TextsCards>
+                        <TextsCards>Queq : {dinningPlace.McDonald.currQ}</TextsCards>
+                        <Link to={{pathname:'/queq',state:{din : dinningPlace.McDonald} }} style={{marginTop:'auto'}}><ButtonCards>Reserve</ButtonCards></Link>
                     </TextContainnerCards>
                 </WrapperCards>
                 <WrapperCards>
@@ -55,7 +82,7 @@ class Main extends React.Component {
                         <TextsCards>{this.state.name[1]}</TextsCards>
                         <TextsCards>Place : {this.state.place[1]}</TextsCards>
                         <TextsCards>Queq : {Math.floor(Math.random() * 100)}</TextsCards>
-                        <Link to="/queq" style={{marginTop:'auto'}}><ButtonCards>Reserve</ButtonCards></Link>
+                        <Link to={{pathname:'/queq',state:{din : dinningPlace.KFC} }} style={{marginTop:'auto'}}><ButtonCards>Reserve</ButtonCards></Link>
                     </TextContainnerCards>
                 </WrapperCards>
                 <WrapperCards>
@@ -64,7 +91,7 @@ class Main extends React.Component {
                         <TextsCards>{this.state.name[2]}</TextsCards>
                         <TextsCards>Place : {this.state.place[2]}</TextsCards>
                         <TextsCards>Queq : {Math.floor(Math.random() * 100)}</TextsCards>
-                        <Link to="/queq" style={{marginTop:'auto'}}><ButtonCards>Reserve</ButtonCards></Link>
+                        <Link to={{pathname:'/queq',state:{din : dinningPlace.MK} }} style={{marginTop:'auto'}}><ButtonCards>Reserve</ButtonCards></Link>
                     </TextContainnerCards>
                 </WrapperCards>
                 <WrapperCards>
@@ -73,7 +100,7 @@ class Main extends React.Component {
                         <TextsCards>{this.state.name[3]}</TextsCards>
                         <TextsCards>Place : {this.state.place[3]}</TextsCards>
                         <TextsCards>Queq : {Math.floor(Math.random() * 100)}</TextsCards>
-                        <Link to="/queq" style={{marginTop:'auto'}}><ButtonCards>Reserve</ButtonCards></Link>
+                        <Link to={{pathname:'/queq',state:{din : dinningPlace.BurgerKing} }} style={{marginTop:'auto'}}><ButtonCards>Reserve</ButtonCards></Link>
                     </TextContainnerCards>
                 </WrapperCards>
             </CardCon>
