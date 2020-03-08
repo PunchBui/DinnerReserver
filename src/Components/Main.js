@@ -15,9 +15,9 @@ class Main extends React.Component {
         super(props)
         this.state = {
           searchInput : "",
-          name: ['McDonald','KFC','BurgerKing','MK'],
-          place: ['Central Rama 2','Central Rama 3','Central Rama 4','Central Rama 5'],
-          currQ: Math.floor(Math.random() * 100)
+        //   name: ['McDonald','KFC','BurgerKing','MK'],
+        //   place: ['Central Rama 2','Central Rama 3','Central Rama 4','Central Rama 5'],
+        //   currQ: Math.floor(Math.random() * 100)
         };
     }
     // sendProps = () => {
@@ -51,7 +51,7 @@ class Main extends React.Component {
                 currQ: Math.floor(Math.random() * 100)
             },
             MK: {
-                name: 'Mk',
+                name: 'MK',
                 place: 'Central Rama 5',
                 img: mk,
                 currQ: Math.floor(Math.random() * 100)
@@ -68,7 +68,7 @@ class Main extends React.Component {
             </SearchContainner>
             <CardCon>
                 <WrapperCards>
-                    <LogoCards src={Mc}/>
+                    <LogoCards src={dinningPlace.McDonald.img}/>
                     <TextContainnerCards>
                         <TextsCards>{dinningPlace.McDonald.name}</TextsCards>
                         <TextsCards>Place : {dinningPlace.McDonald.place}</TextsCards>
@@ -77,29 +77,29 @@ class Main extends React.Component {
                     </TextContainnerCards>
                 </WrapperCards>
                 <WrapperCards>
-                    <LogoCards src={kfc}/>
+                    <LogoCards src={dinningPlace.KFC.img}/>
                     <TextContainnerCards>
-                        <TextsCards>{this.state.name[1]}</TextsCards>
-                        <TextsCards>Place : {this.state.place[1]}</TextsCards>
-                        <TextsCards>Queq : {Math.floor(Math.random() * 100)}</TextsCards>
+                        <TextsCards>{dinningPlace.KFC.name}</TextsCards>
+                        <TextsCards>Place : {dinningPlace.KFC.place}</TextsCards>
+                        <TextsCards>Queq : {dinningPlace.KFC.currQ}</TextsCards>
                         <Link to={{pathname:'/queq',state:{din : dinningPlace.KFC} }} style={{marginTop:'auto'}}><ButtonCards>Reserve</ButtonCards></Link>
                     </TextContainnerCards>
                 </WrapperCards>
                 <WrapperCards>
-                    <LogoCards src={mk}/>
+                    <LogoCards src={dinningPlace.MK.img}/>
                     <TextContainnerCards>
-                        <TextsCards>{this.state.name[2]}</TextsCards>
-                        <TextsCards>Place : {this.state.place[2]}</TextsCards>
-                        <TextsCards>Queq : {Math.floor(Math.random() * 100)}</TextsCards>
+                        <TextsCards>{dinningPlace.MK.name}</TextsCards>
+                        <TextsCards>Place : {dinningPlace.MK.place}</TextsCards>
+                        <TextsCards>Queq : {dinningPlace.MK.currQ}</TextsCards>
                         <Link to={{pathname:'/queq',state:{din : dinningPlace.MK} }} style={{marginTop:'auto'}}><ButtonCards>Reserve</ButtonCards></Link>
                     </TextContainnerCards>
                 </WrapperCards>
                 <WrapperCards>
-                    <LogoCards src={bgk}/>
+                    <LogoCards src={dinningPlace.BurgerKing.img}/>
                     <TextContainnerCards>
-                        <TextsCards>{this.state.name[3]}</TextsCards>
-                        <TextsCards>Place : {this.state.place[3]}</TextsCards>
-                        <TextsCards>Queq : {Math.floor(Math.random() * 100)}</TextsCards>
+                        <TextsCards>{dinningPlace.BurgerKing.name}</TextsCards>
+                        <TextsCards>Place : {dinningPlace.BurgerKing.place}</TextsCards>
+                        <TextsCards>Queq : {dinningPlace.BurgerKing.currQ}</TextsCards>
                         <Link to={{pathname:'/queq',state:{din : dinningPlace.BurgerKing} }} style={{marginTop:'auto'}}><ButtonCards>Reserve</ButtonCards></Link>
                     </TextContainnerCards>
                 </WrapperCards>

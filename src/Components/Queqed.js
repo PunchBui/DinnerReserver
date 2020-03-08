@@ -4,12 +4,16 @@ import { FlexboxCenter } from '../StyledCom/flexbox.js'
 
 const Queqed = (props) => {
     let [queq,setQueq] = useState(props.location.state.din.currQ);
+    let [queqText,setQueqText] = useState('YOU ARE IN QUE!');
+    let [alrText,setAlrText] = useState();
     const info = props.location.state.din;
     // console.log(queq);
     // console.log(info);
     const reduceQ = () => {
         if(queq == 0){
             clearInterval(reducingQ);
+            setQueqText(queqText = "YOUR QUQ IS NOW!");
+            setAlrText(alrText = 'Please check-in in 10 minutes.');
         }else{
             setQueq(queq = queq-1);
         }
@@ -18,10 +22,11 @@ const Queqed = (props) => {
     return(
         <Wrapper>
             <WrapperCards>
-                <HeaderText>YOU ARE IN QUEQ!</HeaderText>
+                <HeaderText>{queqText}</HeaderText>
                 <CardText>Name : {info.name}</CardText>
                 <CardText>Place : {info.place}</CardText>
                 <CardText>Queq : {queq}</CardText>
+                <CardText>{alrText}</CardText>
             </WrapperCards>
             {/* <HeaderText>YOU ARE IN QUEQ!</HeaderText> */}
         </Wrapper>
