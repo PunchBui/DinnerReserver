@@ -97,7 +97,7 @@ class Main extends React.Component {
             console.log("KFC")
             let kfc = {KFC : this.dinningPlace.KFC}
             list = {...list,...kfc}
-        }else if(this.state.searchInput.includes("BurgerKing")){
+        }else if(this.state.searchInput.includes("Burgerking")){
             console.log("BurgerKing")
             let Burgerking = {BurgerKing : this.dinningPlace.BurgerKing}
             list = {...list,...Burgerking}
@@ -140,7 +140,7 @@ class Main extends React.Component {
         <Wrapper>
             <SearchBg src={bgSearch}/>
             <SearchContainner>
-                <Search placeholder="Find Dinner Place."
+                <Search placeholder="Find Dinner Place. (try Mcdonald,KFC,MK,Burgerking)"
                         value={this.state.searchInput}
                         onChange={(e) => this.setSearch(e.target.value)}/>
                 <SearchBtn onClick={this.searchHandler}>SEARCH</SearchBtn>
