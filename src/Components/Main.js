@@ -82,6 +82,11 @@ class Main extends React.Component {
             currQ: Math.floor(Math.random() * 100)
         }
     }
+    keyDownHandler = (e) => {
+        if (e.key === 'Enter') {
+            this.searchHandler();
+        }
+    }
     searchHandler = () => {
         let list = {};
         console.log("searching...")
@@ -142,6 +147,7 @@ class Main extends React.Component {
             <SearchContainner>
                 <Search placeholder="Find Dinner Place. (try Mcdonald,KFC,MK,Burgerking)"
                         value={this.state.searchInput}
+                        onKeyDown={this.keyDownHandler}
                         onChange={(e) => this.setSearch(e.target.value)}/>
                 <SearchBtn onClick={this.searchHandler}>SEARCH</SearchBtn>
             </SearchContainner>
