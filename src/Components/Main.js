@@ -101,12 +101,13 @@ class Main extends React.Component {
             console.log("BurgerKing")
             let Burgerking = {BurgerKing : this.dinningPlace.BurgerKing}
             list = {...list,...Burgerking}
+        }else{
+            list = {...this.dinningPlace}
         }
         this.setState({
             placeList : list,
         })
-        console.log(list);
-        // Object.entries(this.dinningPlace).forEach(([key, val]) => console.log(key, val));
+        //console.log(list);
     }
     render() {
         const dinningPlace = {
@@ -145,7 +146,22 @@ class Main extends React.Component {
                 <SearchBtn onClick={this.searchHandler}>SEARCH</SearchBtn>
             </SearchContainner>
             <CardCon>
-                <WrapperCards>
+                {Object.entries(this.state.placeList).map(([key, val]) => {
+                    // console.log(key, val.name)
+                    return( <WrapperCards>
+                                        <LogoCards src={val.img}/>
+                                        <TextContainnerCards>
+                                            <TextsCards>{val.name}</TextsCards>
+                                            <TextsCards>Place : {val.place}</TextsCards>
+                                            <TextsCards>Queq : {val.currQ}</TextsCards>
+                                            <Link to={{pathname:'/queq',state:{din : val} }} style={{marginTop:'auto'}}><ButtonCards>Reserve</ButtonCards></Link>
+                                        </TextContainnerCards>
+                                    </WrapperCards>
+                    )
+                    // console.log(this.state.placeList)
+                    // return(searchList)
+                })}
+                {/* <WrapperCards>
                     <LogoCards src={dinningPlace.McDonald.img}/>
                     <TextContainnerCards>
                         <TextsCards>{dinningPlace.McDonald.name}</TextsCards>
@@ -180,7 +196,7 @@ class Main extends React.Component {
                         <TextsCards>Queq : {dinningPlace.BurgerKing.currQ}</TextsCards>
                         <Link to={{pathname:'/queq',state:{din : dinningPlace.BurgerKing} }} style={{marginTop:'auto'}}><ButtonCards>Reserve</ButtonCards></Link>
                     </TextContainnerCards>
-                </WrapperCards>
+                </WrapperCards> */}
             </CardCon>
         </Wrapper>
         )
